@@ -1,0 +1,33 @@
+{
+  "listeners":{
+    "*:8080":{
+      "pass":"routes/app"
+    }
+  },
+  "applications":{
+    "MainApp":{
+      "type":"php",
+      "root":"/www/"
+    }
+  },
+  "routes": {
+    "app" : [
+      {
+        "match": {
+          "uri": ["/","*.php"]
+        },
+        "action": {
+          "pass" : "applications/MainApp"
+        }
+      },
+      {
+        "match": {
+          "uri": ["*"]
+        },
+        "action": {
+          "share" : "/www/"
+        }
+      }
+    ]
+  }
+}
