@@ -4,6 +4,9 @@ COPY config.json /docker-entrypoint.d/
 COPY MainApp/ /www/
 
 RUN apt-get update && apt-get install -yq --no-install-recommends \
+    curl \
+    nano \
+    php7.3-curl \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 EXPOSE 8080

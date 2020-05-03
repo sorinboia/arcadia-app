@@ -8,7 +8,13 @@
     "MainApp":{
       "type":"php",
       "root":"/www/",
-      "index": "index.php"
+      "index": "app3/index.php",
+      "user": "root",
+      "options": {
+        "user": {
+          "display_errors": "1"
+        }
+      }
     }
   },
   "routes": {
@@ -30,5 +36,6 @@
         }
       }
     ]
-  }
+  },
+  "access_log": "/var/log/access.log"
 }

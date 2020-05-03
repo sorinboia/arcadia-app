@@ -2,7 +2,7 @@
 
 	$protocol = ((!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off') || $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://";
 	$domainName = $_SERVER['HTTP_HOST'];
-	$backend = "app3";	
+	$backend = "arcadia-app3";
 	
 	if(empty($_GET['user_name']) || empty($_GET['email']) || empty($_GET['bank_id']))
 	{
@@ -21,7 +21,9 @@
 	curl_setopt($ch, CURLOPT_POST, 1);
 	curl_setopt($ch, CURLOPT_POSTFIELDS, $query);
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-	curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json')); 
+	curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
+
+
 	$result = curl_exec($ch);
 	$info = curl_getinfo($ch);
 	curl_close($ch);

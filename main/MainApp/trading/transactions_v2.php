@@ -6,16 +6,7 @@ function authenticate() {
     exit;
 }
 
-if (!isset($_SERVER['PHP_AUTH_USER']))
-{
-    header('HTTP/1.1 504 Unauthenticated');
-}
-else
-{
-	if ($_SERVER['PHP_AUTH_USER'] == "admin" && $_SERVER['PHP_AUTH_PW'] == "iloveblue")
-	{
-
-		$protocol = ((!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off') || $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://";
+$protocol = ((!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off') || $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://";
 		$domainName = $_SERVER['HTTP_HOST'];
     $backend = "backend";
 
@@ -68,9 +59,4 @@ else
 				  </tbody></table>
 				</div>
 			  </div>';
-	}
-	else
-	{
-		header('HTTP/1.1 505 Wrong Credentials');
-	}
 }
