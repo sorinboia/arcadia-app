@@ -59,4 +59,4 @@ $protocol = ((!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off') || $_SERV
 				  </tbody></table>
 				</div>
 			  </div>';
-}
+>

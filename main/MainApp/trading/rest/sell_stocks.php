@@ -76,10 +76,6 @@ function authenticate() {
 				$stocks[$my_company]['qty'] = $stocks[$my_company]['qty'] - $my_qty;
 				$stocks[$my_company]['value'] = $stocks[$my_company]['value'] - $my_trans_value_static;
 
-//				$my_stocks_file = fopen("stocks.json", "w") or die("Unable to open file!");
-//				fwrite($my_stocks_file, json_encode($stocks));
-//				fclose($my_stocks_file);
-
 				$url = $protocol.$domainName.'/files/stocks.php';
 				$ch = curl_init($url);
 				$jsonDataEncoded = json_encode($stocks);

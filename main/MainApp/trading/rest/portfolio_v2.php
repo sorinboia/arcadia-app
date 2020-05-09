@@ -6,16 +6,7 @@ function authenticate() {
     echo "You must enter a valid login ID and password to access this resource\n";
     exit;
 }
-
-if (!isset($_SERVER['PHP_AUTH_USER']))
-{
-    header('HTTP/1.1 504 Unauthenticated');
-}
-else
-{
-	if ($_SERVER['PHP_AUTH_USER'] == "admin" && $_SERVER['PHP_AUTH_PW'] == "iloveblue")
-	{
-		$protocol = ((!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off') || $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://";
+        $protocol = ((!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off') || $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://";
 		$domainName = "backend";
 
 		sleep(1);
@@ -75,12 +66,5 @@ else
 		$diff = round((($current - $today)/$today)*100,2);
 
 		echo '{"year":'.$year.',"month":'.$month.',"week":'.$week.',"yesterday":'.$yesterday.',"year_profit":'.$year_profit.',"month_profit":'.$month_profit.',"week_profit":'.$week_profit.',"yesterday_profit":'.$yesterday_profit.',"balance":'.$current.', "profit":'.$diff.', "amazon":{"price":'.$amazon_stock_price.',"balance":'.$amazon_stock_value.',"qty":'.$amazon_stock_qty.',"profit":'.$amazon_stock_diff.',"percentage":'.$amazon_percentage.'}, "microsoft":{"price":'.$microsoft_stock_price.',"balance":'.$microsoft_stock_value.',"qty":'.$microsoft_stock_qty.',"profit":'.$microsoft_stock_diff.',"percentage":'.$microsoft_percentage.'}, "google":{"price":'.$google_stock_price.',"balance":'.$google_stock_value.',"qty":'.$google_stock_qty.',"profit":'.$google_stock_diff.',"percentage":'.$google_percentage.'},  "f5":{"price":'.$f5_stock_price.',"balance":'.$f5_stock_value.',"qty":'.$f5_stock_qty.',"profit":'.$f5_stock_diff.',"percentage":'.$f5_percentage.'}}';
-	}
-	else
-	{
-		header('HTTP/1.1 505 Wrong Credentials');
-	}
-
-}
 
 ?>
